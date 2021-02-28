@@ -1,0 +1,22 @@
+{
+    "name": "jx3",
+    "version": "1.0.0",
+    "description": "剑网3.com",
+    "main": "index.js",
+    "scripts": {
+        "serve": "npx serve -s"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JX3BOX/jx3.git"
+    },
+    "author": "iRuxu <rx6@qq.com> (https://iruxu.com/)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/JX3BOX/jx3/issues"
+    },
+    "homepage": "https://github.com/JX3BOX/jx3#readme",
+    "dependencies": {
+        "serve": "^11.3.2"
+    }
+}

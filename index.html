@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-<title></title>
-<meta http-equiv="refresh" content="0;url=https://www.jx3box.com"> 
-</head>
-<body>
-</body>
+    <head>
+        <title>剑网3.com</title>
+        <!-- <meta http-equiv="refresh" content="0;url=https://www.jx3box.com" /> -->
+        <script>
+
+            // Root
+            var pathname = location.pathname
+            if(pathname == '/'){
+                location.href = 'https://www.jx3box.com'
+            }
+
+            // Namespace
+            var bbs = 'https://www.jx3box.com/bbs/#/namespace'
+            var api = 'https://helper.jx3box.com/api/menu_group/header'     //TODO:接口地址更换
+            var key = pathname.slice(1)
+            fetch(`${api}?key=${key}`).then((res) => {
+                return res.json()
+            }).then((data) => {
+                console.log(data)
+                // TODO:
+                // 如果存在，则跳转到link
+                // 如果不存在，则跳转到bbs
+            }).catch((err) => {
+                // 网络请求异常时跳转到bbs
+                location.href = bbs
+            })
+        </script>
+    </head>
+    <body></body>
 </html>

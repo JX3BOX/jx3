@@ -9,5 +9,6 @@
 ```nginx
 location / {
     try_files $uri $uri/ /index.html;
+    add_header Cache-Control no-store;
 }
 ```

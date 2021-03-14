@@ -1,2 +1,6 @@
 node_modules
 package-lock.json
+.htaccess
+.user.ini
+.well-known
+404.html

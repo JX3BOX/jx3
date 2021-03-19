@@ -34,7 +34,7 @@
                             location.href = namespace.link || bbs;
                         }
                     } else {
-                        location.href = bbs;
+                        location.href = bbs + '?namespace=' + key;
                     }
                 })
                 .catch((err) => {

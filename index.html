@@ -39,7 +39,7 @@
                 })
                 .catch((err) => {
                     // 网络请求异常时跳转到bbs
-                    location.href = bbs;
+                    location.href = bbs + '?namespace=' + key;
                 });
         </script>
     </head>

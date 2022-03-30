@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <head>
-        <title>剑网3.com</title>
-        <meta charset="utf-8">
-        <!-- <meta http-equiv="refresh" content="0;url=https://www.jx3box.com" /> -->
-        <script>
-            // Root
-            var jx3box = "https://www.jx3box.com";
-            var pathname = location.pathname;
-            if (pathname == "/") {
-                location.href = jx3box;
-            }
 
-            // Namespace
-            var bbs = jx3box + "/bbs/#/namespace";
-            var api = "https://helper.jx3box.com/api/namespace";
-            var key = decodeURIComponent(pathname.slice(1));
-            fetch(
-                `https://next2.jx3box.com/api/summary-any/namespace-${key}`
-            );
-            fetch(`${api}?key=${key}`)
-                .then((res) => {
-                    return res.json();
-                })
-                .then((data) => {
+<head>
+    <title>剑网3.com</title>
+    <meta charset="utf-8">
+    <!-- <meta http-equiv="refresh" content="0;url=https://www.jx3box.com" /> -->
+    <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1277938200&web_id=1277938200"></script>
+    <script>
+        // Root
+        var jx3box = "https://www.jx3box.com";
+        var pathname = location.pathname;
+        if (pathname == "/") {
+            location.href = jx3box;
+        }
 
-                    if (data && data.code == 200) {
-                        var namespace = data.data.namespace;
-                        if (namespace.source_type == "team") {
-                            location.href =
-                                jx3box + "/team/org/" + namespace.source_id;
-                        } else {
-                            location.href = namespace.link || bbs;
-                        }
+        // Namespace
+        var bbs = jx3box + "/bbs/#/namespace";
+        var api = "https://helper.jx3box.com/api/namespace";
+        var key = decodeURIComponent(pathname.slice(1));
+        fetch(
+            `https://next2.jx3box.com/api/summary-any/namespace-${key}`
+        );
+        fetch(`${api}?key=${key}`)
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+
+                if (data && data.code == 200) {
+                    var namespace = data.data.namespace;
+                    if (namespace.source_type == "team") {
+                        location.href =
+                            jx3box + "/team/org/" + namespace.source_id;
                     } else {
-                        location.href = bbs + '?namespace=' + key;
+                        location.href = namespace.link || bbs;
                     }
-                })
-                .catch((err) => {
-                    // 网络请求异常时跳转到bbs
+                } else {
                     location.href = bbs + '?namespace=' + key;
-                });
-        </script>
-    </head>
+                }
+            })
+            .catch((err) => {
+                // 网络请求异常时跳转到bbs
+                location.href = bbs + '?namespace=' + key;
+            });
+    </script>
+</head>
 
-    <body>
-        <div style="display: none">
-            <script
-                type="text/javascript"
-                src="https://s9.cnzz.com/z_stat.php?id=1277938200&web_id=1277938200"
-            ></script>
-        </div>
-    </body>
+<body>
+</body>
+
 </html>

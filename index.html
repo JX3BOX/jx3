@@ -25,7 +25,7 @@
 
         // Namespace
         var bbs = jx3box + "/bbs/#/namespace";
-        var api = "https://helper.jx3box.com/api/namespace";
+        var api = "https://cms.jx3box.com/api/cms/namespace-key";
         var key = decodeURIComponent(pathname.slice(1));
         fetch(
             `https://next2.jx3box.com/api/summary-any/namespace-${key}`
@@ -35,9 +35,8 @@
                 return res.json();
             })
             .then((data) => {
-
-                if (data && data.code == 200) {
-                    var namespace = data.data.namespace;
+                if (data && data.code == 0) {
+                    var namespace = data.data;
                     if (namespace.source_type == "team") {
                         location.href =
                             jx3box + "/team/org/" + namespace.source_id;
